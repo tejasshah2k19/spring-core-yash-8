@@ -6,7 +6,13 @@
 
 	<!-- bean definitions here -->
 
-	<bean class="com.dao.UserDao" id="userDao">
+	<bean class="com.dao.UserDao" id="userDao" scope="prototype">
 	</bean>
 
+	<bean class="com.controller.UserController" id="userController">
+		<constructor-arg ref="userDao"></constructor-arg>
+		<property name="paymentDao" ref="paymentDao"></property>
+	</bean>
+	
+	<bean class="com.dao.PaymentDao" id="paymentDao"></bean>
 </beans>
